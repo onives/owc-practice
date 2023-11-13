@@ -1,5 +1,5 @@
 import unittest
-from is_prime import is_prime
+from PYTHON_TDD.isprime.is_prime import is_prime
 
 class PrimeNotPrimeTest(unittest.TestCase):
     def test_is_prime(self):

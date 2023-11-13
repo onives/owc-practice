@@ -1,11 +1,11 @@
 const fizz_buzz = require('./fizz_buzz');
 
 describe("FizzBuzz", () => {
-    test('[3] should result in "fizz"', () => {
+    it('[3] should result in "fizz"', () => {
       expect(fizz_buzz([3])).toBe('fizz');
     });
 
-    test('[5] should result in "buzz"', () => {
+    it('[5] should result in "buzz"', () => {
       expect(fizz_buzz([5])).toBe('buzz');
     });
 

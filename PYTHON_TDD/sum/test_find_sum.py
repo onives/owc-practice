@@ -1,5 +1,5 @@
 import unittest
-from find_sum import find_sum
+from PYTHON_TDD.sum.find_sum import find_sum
 
 
 class FindSumTest(unittest.TestCase):
