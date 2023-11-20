@@ -11,7 +11,9 @@ on:
 
 jobs:
   build:
-
+    env:
+      working-directory: JS_TDD
+      
     runs-on: ubuntu-latest
 
     strategy:
