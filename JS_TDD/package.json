@@ -4,7 +4,8 @@
   "description": "",
   "main": "is_prime.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:ci": "jest --verbose"
   },
   "keywords": [],
   "author": "",
