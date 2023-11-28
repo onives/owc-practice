@@ -50,7 +50,7 @@ end
 states = {
     :Pennsylvania => "PA",
     "New York" => "NY",
-    "Oregon" => "OR"
+    :Oregon => "OR"
 }
 
 puts states["Oregon"]
