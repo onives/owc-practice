@@ -1,17 +1,14 @@
-# Versions Used in the projects
-
-In JS_TDD, the following versions are used
+# Versions In JS_TDD
 
 Node Version: v20.9.0
 
 Jest: 29.7.0
 
-
-In PYTHON_TDD, the following versions are used
+# Versions In PYTHON_TDD
 
 Python: v3.11.6
 
-In RUBY, the following versions are used
+# Versions In RUBY
 
 Ruby: 2.6.10p210
 
