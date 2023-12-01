@@ -10,6 +10,7 @@ def find_winner(board)
 end
 
 def find_winner_in_row(row)
+    # try using a loop here
     if(row[0] == 'X' and row[1] == 'X' and row[2] == 'X')
       'X'
     elsif (row[0] == 'O' and row[1] == 'O' and row[2] == 'O')
