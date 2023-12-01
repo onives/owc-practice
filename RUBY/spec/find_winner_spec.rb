@@ -2,11 +2,7 @@ def find_winner(board)
     board.each do |row|
         if (find_winner_in_row(row) == 'X')
             return 'X'
-        end
-    end
-
-    board.each do |row|
-        if (find_winner_in_row(row) == 'O')
+        elsif (find_winner_in_row(row) == 'O')
             return 'O'
         end
     end
