@@ -1,5 +1,5 @@
 def find_winner(board)
-    if(board[0][0] == 'X' and board[0][1] == 'X' and board[0][2] == 'X') || (board[1][0] == 'X' and board[1][1] == 'X' and board[1][2] == 'X') || (board[2][0] == 'X' and board[2][1] == 'X' and board[2][2] == 'X')
+    if(find_winner_in_row(board[0]) == 'X') || (board[1][0] == 'X' and board[1][1] == 'X' and board[1][2] == 'X') || (board[2][0] == 'X' and board[2][1] == 'X' and board[2][2] == 'X')
         return 'X'
     end
 
@@ -8,6 +8,14 @@ def find_winner(board)
     end
 
     false
+end
+
+def find_winner_in_row(row)
+    if(row[0] == 'X' and row[1] == 'X' and row[2] == 'X')
+      'X'
+    else
+      false
+    end
 end
 
 describe '#find_winner' do
