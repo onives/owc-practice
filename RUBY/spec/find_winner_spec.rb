@@ -5,20 +5,20 @@ def find_winner(board)
         end
     end
 
-    # if(find_winner_in_row(board[0]) == 'X') || (find_winner_in_row(board[1]) == 'X') || (find_winner_in_row(board[2]) == 'X')
-    #     return 'X'
-    # end
-
-    if(board[0][0] == 'O' and board[0][1] == 'O' and board[0][2] == 'O') || (board[1][0] == 'O' and board[1][1] == 'O' and board[1][2] == 'O') || (board[2][0] == 'O' and board[2][1] == 'O' and board[2][2] == 'O')
-        return 'O'
+    board.each do |row|
+        if (find_winner_in_row(row) == 'O')
+            return 'O'
+        end
     end
-
+    
     false
 end
 
 def find_winner_in_row(row)
     if(row[0] == 'X' and row[1] == 'X' and row[2] == 'X')
       'X'
+    elsif (row[0] == 'O' and row[1] == 'O' and row[2] == 'O')
+        'O'
     else
       false
     end
