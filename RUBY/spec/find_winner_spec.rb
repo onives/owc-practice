@@ -11,6 +11,9 @@ def find_winner(board)
             return col_winner
         end
     end
+    if (board[0][0] == 'X' and board[1][1] == 'X' and  board[2][2] == 'X')
+        return 'X'
+    end
 
     false
 end
