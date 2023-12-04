@@ -11,7 +11,7 @@ def find_winner(board)
             return col_winner
         end
     end
-    
+
     false
 end
 
@@ -133,6 +133,14 @@ describe '#find_winner' do
       ['-', 'O', '-']
     ]
     expect(find_winner(board)).to eql('O')
+  end
+  it 'returns "X" when, given a board where X claims the righ-left diagonal' do
+    board = [
+      ['X', '-', '-'],
+      ['-', 'X', '-'],
+      ['-', '-', 'X']
+    ]
+    expect(find_winner(board)).to eql('X')
   end
   
 end
