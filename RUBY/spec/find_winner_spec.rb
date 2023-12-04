@@ -145,5 +145,13 @@ describe '#find_winner' do
     ]
     expect(find_winner(board)).to eql('X')
   end
+  it 'returns "X" when, given a board where X claims the left-right diagonal' do
+    board = [
+      ['-', '-', 'X'],
+      ['-', 'X', '-'],
+      ['X', '-', '-']
+    ]
+    expect(find_winner(board)).to eql('X')
+  end
   
 end
