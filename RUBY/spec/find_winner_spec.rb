@@ -5,12 +5,16 @@ def find_winner(board)
             return row_winner
         end
     end
+    if (board.transpose[0][0] == 'X' and board.transpose[0][1] == 'X' and board.transpose[0][2] == 'X') || (board.transpose[1][0] == 'X' and board.transpose[1][1] == 'X' and board.transpose[1][2] == 'X')
+        return 'X'
+    end
 
     false
 end
 
 def find_winner_in_row(row)
     # try using a loop here
+
     if(row[0] == 'X' and row[1] == 'X' and row[2] == 'X')
       'X'
     elsif (row[0] == 'O' and row[1] == 'O' and row[2] == 'O')
@@ -46,7 +50,6 @@ describe '#find_winner' do
       ['X', 'X', 'X'],
       ['-', '-', '-']
     ]
-
     expect(find_winner(board)).to eql('X')
   end
   it 'returns "X" when, given a board where X claims the bottom row' do
@@ -85,4 +88,31 @@ describe '#find_winner' do
 
     expect(find_winner(board)).to eql('O')
   end
+  it 'returns "X" when, given a board where X claims the top column' do
+    board = [
+      ['X', '-', '-'],
+      ['X', '-', '-'],
+      ['X', '-', '-']
+    ]
+
+    expect(find_winner(board)).to eql('X')
+  end
+  it 'returns "X" when, given a board where X claims the middle column' do
+    board = [
+      ['-', 'X', '-'],
+      ['-', 'X', '-'],
+      ['-', 'X', '-']
+    ]
+    expect(find_winner(board)).to eql('X')
+  end
+#   it 'returns "X" when, given a board where X claims the bottom row' do
+#     board = [
+#       ['-', '-', '-'],
+#       ['-', '-', '-'],
+#       ['X', 'X', 'X']
+#     ]
+
+#     expect(find_winner(board)).to eql('X')
+#   end
+  
 end
