@@ -20,7 +20,16 @@ def find_winner(board)
         return find_winner_in_diagonal(board)
     end
 
-    false
+    # check for any unfilled space
+    board.each do |row|
+        row.each do |col|
+            if col == '-'
+                return false
+            end
+        end
+    end
+
+    :tie
 end
 
 def find_winner_in_row(row)
@@ -185,5 +194,13 @@ describe '#find_winner' do
       ['O', '-', '-']
     ]
     expect(find_winner(board)).to eql('O')
+  end
+  it 'returns :tie when, given a board where neither X nor O wins' do
+    board = [
+      ['X', 'O', 'X'],
+      ['X', 'O', 'O'],
+      ['O', 'X', 'X']
+    ]
+    expect(find_winner(board)).to eql(:tie)
   end
 end
