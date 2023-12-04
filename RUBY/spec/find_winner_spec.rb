@@ -1,5 +1,5 @@
 def find_winner(board)
-    # find row winner
+    # returns row winner
     board.each do |row|
         row_winner = find_winner_in_row(row)
         if row_winner
@@ -7,7 +7,7 @@ def find_winner(board)
         end
     end
 
-    # find column winner
+    # returns column winner
     board.transpose.each do |col|
         col_winner = find_winner_in_row(col)
         if col_winner
@@ -15,11 +15,11 @@ def find_winner(board)
         end
     end
 
-    # find diagonal winner
+    # returns diagonal winner
     if find_winner_in_diagonal(board)
         return find_winner_in_diagonal(board)
     end
-    
+
     false
 end
 
