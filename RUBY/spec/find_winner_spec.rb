@@ -33,15 +33,15 @@ def find_winner(board)
 end
 
 def find_winner_in_row(row)
-    # try using a loop here
-
-    if(row[0] == 'X' and row[1] == 'X' and row[2] == 'X')
-      'X'
-    elsif (row[0] == 'O' and row[1] == 'O' and row[2] == 'O')
+    
+    if row.count('X') == 3
+        'X'
+    elsif row.count('O') == 3
         'O'
     else
-      false
+        false
     end
+
 end
 
 def find_winner_in_diagonal(board)
