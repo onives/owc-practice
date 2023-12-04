@@ -5,11 +5,18 @@ def find_winner(board)
             return row_winner
         end
     end
-    if (board.transpose[0][0] == 'X' and board.transpose[0][1] == 'X' and board.transpose[0][2] == 'X') || (board.transpose[1][0] == 'X' and board.transpose[1][1] == 'X' and board.transpose[1][2] == 'X') || (board.transpose[2][0] == 'X' and board.transpose[2][1] == 'X' and board.transpose[2][2] == 'X')
-        return 'X'
-    elsif (board.transpose[0][0] == 'O' and board.transpose[0][1] == 'O' and board.transpose[0][2] == 'O') || (board.transpose[1][0] == 'O' and board.transpose[1][1] == 'O' and board.transpose[1][2] == 'O')
-        return 'O'
+    board.transpose.each do |col|
+        col_winner = find_winner_in_row(col)
+        if col_winner
+            return col_winner
+        end
     end
+
+    # if (board.transpose[0][0] == 'X' and board.transpose[0][1] == 'X' and board.transpose[0][2] == 'X') || (board.transpose[1][0] == 'X' and board.transpose[1][1] == 'X' and board.transpose[1][2] == 'X') || (board.transpose[2][0] == 'X' and board.transpose[2][1] == 'X' and board.transpose[2][2] == 'X')
+    #     return 'X'
+    # elsif (board.transpose[0][0] == 'O' and board.transpose[0][1] == 'O' and board.transpose[0][2] == 'O') || (board.transpose[1][0] == 'O' and board.transpose[1][1] == 'O' and board.transpose[1][2] == 'O')
+    #     return 'O'
+    # end
 
     false
 end
