@@ -1,22 +1,25 @@
 def find_winner(board)
+    # find row winner
     board.each do |row|
         row_winner = find_winner_in_row(row)
         if row_winner
             return row_winner
         end
     end
+
+    # find column winner
     board.transpose.each do |col|
         col_winner = find_winner_in_row(col)
         if col_winner
             return col_winner
         end
     end
-    if (board[0][0] == 'X' and board[1][1] == 'X' and  board[2][2] == 'X') || (board[0][2] == 'X' and board[1][1] == 'X' and  board[2][0] == 'X')
-        return 'X'
-    elsif (board[0][0] == 'O' and board[1][1] == 'O' and  board[2][2] == 'O') || (board[0][2] == 'O' and board[1][1] == 'O' and  board[2][0] == 'O')
-        return 'O'
-    end
 
+    # find diagonal winner
+    if find_winner_in_diagonal(board)
+        return find_winner_in_diagonal(board)
+    end
+    
     false
 end
 
@@ -32,7 +35,16 @@ def find_winner_in_row(row)
     end
 end
 
-def find_winner_in_diagonal()
+def find_winner_in_diagonal(board)
+    diagonal1 = [board[0][0], board[1][1], board[2][2]]
+    diagonal2 = [board[0][2], board[1][1], board[2][0]]
+
+    if find_winner_in_row(diagonal1)
+        return find_winner_in_row(diagonal1)
+    elsif find_winner_in_row(diagonal2)
+        return find_winner_in_row(diagonal2)
+    end
+
 end
 
 describe '#find_winner' do
