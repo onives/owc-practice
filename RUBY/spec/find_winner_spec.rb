@@ -13,6 +13,8 @@ def find_winner(board)
     end
     if (board[0][0] == 'X' and board[1][1] == 'X' and  board[2][2] == 'X') || (board[0][2] == 'X' and board[1][1] == 'X' and  board[2][0] == 'X')
         return 'X'
+    elsif (board[0][0] == 'O' and board[1][1] == 'O' and  board[2][2] == 'O') || (board[0][2] == 'O' and board[1][1] == 'O' and  board[2][0] == 'O')
+        return 'O'
     end
 
     false
@@ -28,6 +30,9 @@ def find_winner_in_row(row)
     else
       false
     end
+end
+
+def find_winner_in_diagonal()
 end
 
 describe '#find_winner' do
@@ -153,5 +158,20 @@ describe '#find_winner' do
     ]
     expect(find_winner(board)).to eql('X')
   end
-  
+  it 'returns "O" when, given a board where O claims the righ-left diagonal' do
+    board = [
+      ['O', '-', '-'],
+      ['-', 'O', '-'],
+      ['-', '-', 'O']
+    ]
+    expect(find_winner(board)).to eql('O')
+  end
+  it 'returns "O" when, given a board where O claims the left-right diagonal' do
+    board = [
+      ['-', '-', 'O'],
+      ['-', 'O', '-'],
+      ['O', '-', '-']
+    ]
+    expect(find_winner(board)).to eql('O')
+  end
 end
