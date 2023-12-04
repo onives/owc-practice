@@ -1,7 +1,7 @@
 def find_winner(board)
     # returns row winner
     board.each do |row|
-        row_winner = find_winner_in_row(row)
+        row_winner = find_winner_in_line(row)
         if row_winner
             return row_winner
         end
@@ -9,7 +9,7 @@ def find_winner(board)
 
     # returns column winner
     board.transpose.each do |col|
-        col_winner = find_winner_in_row(col)
+        col_winner = find_winner_in_line(col)
         if col_winner
             return col_winner
         end
@@ -32,8 +32,8 @@ def find_winner(board)
     :tie
 end
 
-def find_winner_in_row(row)
-    
+def find_winner_in_line(row)
+
     if row.count('X') == 3
         'X'
     elsif row.count('O') == 3
@@ -48,10 +48,10 @@ def find_winner_in_diagonal(board)
     diagonal1 = [board[0][0], board[1][1], board[2][2]]
     diagonal2 = [board[0][2], board[1][1], board[2][0]]
 
-    if find_winner_in_row(diagonal1)
-        return find_winner_in_row(diagonal1)
-    elsif find_winner_in_row(diagonal2)
-        return find_winner_in_row(diagonal2)
+    if find_winner_in_line(diagonal1)
+        return find_winner_in_line(diagonal1)
+    elsif find_winner_in_line(diagonal2)
+        return find_winner_in_line(diagonal2)
     end
 
 end
